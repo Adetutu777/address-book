@@ -2,23 +2,37 @@
 <div class=" my-address" style="width:20rem">
 <h3 class="address-title">Address book</h3>
 <div class="mt-4">
+  <ValidationObserver v-slot="{ invalid }">
+<form>
+<ValidationProvider rules="required" v-slot="{ errors }">
    <b-form-input  placeholder="Name"
    v-model= "name" />
+<span class="" style="color:red">{{ errors[0] }}</span>
+           </ValidationProvider>
 
+<ValidationProvider rules="required|numeric" v-slot="{ errors }">
    <b-form-input  class="mt-4" 
-   type="number" placeholder="Phone number" 
-   v-model= "number"
+   placeholder="Phone number" 
+   v-model= "numbers"
     />
-    <b-button @click="saveMessage" class="mt-3 address-btn" variant="info">
+<span class="" style="color:red">{{ errors[0] }}</span>
+           </ValidationProvider>
+
+    <b-button @click="saveMessage" 
+     :disabled="invalid"
+    class="mt-3 address-btn" 
+    variant="info" >
     Save
     </b-button>
+    </form>
+  </ValidationObserver>
   </div>
 
   <div class="contact-list mt-4">
   <h5>Contact List</h5>
   <div class="d-flex justify-content-between user-info p-2 mt-1"  v-for="results in result" :key="results">
 <div class="">{{results.name}}</div>
-<div class="">{{results.number}}</div>
+<div class="">{{results.numbers}}</div>
     <!-- <p class="p-2">---</p> -->
   </div>
   </div>
@@ -27,23 +41,25 @@
 
 <script>
 import {  ref } from "@nuxtjs/composition-api";
+import { ValidationProvider, ValidationObserver } from 'vee-validate';
 export default {
   name: 'Address',
+  components:{ValidationProvider, ValidationObserver},
   setup(){
     const name = ref('')
-    const number = ref('')
+    const numbers = ref('')
     const result = ref([])
 
     const saveMessage=()=>{
      const message = {
         name:name.value,
-        number:number.value,
+        numbers:numbers.value,
      }
      result.value.push(message) 
      name.value='',
-     number.value=''
+     numbers.value=''
     }
-    return{ name, number, saveMessage, result }
+    return{ name, numbers, saveMessage, result }
   }
 }
 </script>
