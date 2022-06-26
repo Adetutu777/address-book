@@ -1,8 +1,12 @@
 <template>
     <div>
-        <div v-for="todos in todo" :key="todos.id">
-    {{todos.title}}
-        </div>
+<div class="row ml-1">
+  <div class="col-md-6 mt-3" v-for="todos in todo" :key="todos.id">
+    <div class="card todo-card mt-2 p-2">
+       {{todos.username}}
+    </div>
+  </div>
+</div>
     </div>
 </template>
 
@@ -13,7 +17,7 @@ import {  ref, useFetch } from '@nuxtjs/composition-api';
         setup(){
             const todo = ref('')
              useFetch(async () => {
-      await axios.get('https://jsonplaceholder.typicode.com/todos')
+      await axios.get('https://jsonplaceholder.typicode.com/users')
      .then( response => todo.value = response?.data)
       .catch(error => console.log(error))
     })
@@ -23,6 +27,8 @@ import {  ref, useFetch } from '@nuxtjs/composition-api';
     }
 </script>
 
-<style lang="scss" scoped>
-
+<style scoped>
+.todo-card{
+    border: 0.7px solid salmon;
+}
 </style>

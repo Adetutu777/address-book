@@ -5,17 +5,23 @@
   <ValidationObserver v-slot="{ invalid }">
 <form>
 <ValidationProvider rules="required" v-slot="{ errors }">
-   <b-form-input  placeholder="Name"
+   <b-form-input  v-on:keyup="resetDone"
+   placeholder="Name"
    v-model= "name" />
-<span class="" style="color:red">{{ errors[0] }}</span>
+<div class="" style="position: relative; padding-bottom:0.1rem ">
+                                <span v-if="!done" style="color:red; position: absolute; left:0;">{{ errors[0] }}</span> 
+                                </div> 
            </ValidationProvider>
 
 <ValidationProvider rules="required|numeric" v-slot="{ errors }">
-   <b-form-input  class="mt-4" 
+   <b-form-input v-on:keyup="resetDone" 
+   class="mt-4" 
    placeholder="Phone number" 
    v-model= "numbers"
     />
-<span class="" style="color:red">{{ errors[0] }}</span>
+<div class="" style="position: relative; padding-bottom:0.1rem ">
+                                <span v-if="!done" style="color:red; position: absolute; left:0;">{{ errors[0] }}</span> 
+                                </div> 
            </ValidationProvider>
 
     <b-button @click="saveMessage" 
@@ -49,6 +55,7 @@ export default {
     const name = ref('')
     const numbers = ref('')
     const result = ref([])
+    const done = ref(false)
 
     const saveMessage=()=>{
      const message = {
@@ -58,8 +65,17 @@ export default {
      result.value.push(message) 
      name.value='',
      numbers.value=''
+     done.value = true
     }
-    return{ name, numbers, saveMessage, result }
+
+    //  resetDone(){
+    //   if(this.done == false) return 
+    //   this.done=false
+    // }
+    const resetDone=()=>{
+      if(done.value == false) return
+    }
+    return{ name, numbers, saveMessage, result, done, resetDone }
   }
 }
 </script>

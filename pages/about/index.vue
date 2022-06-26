@@ -1,30 +1,35 @@
 <template>
     <div>
-    <button @click="showData">click</button>
+    <div class="ml-3 mt-4">
+<h5>Hello World</h5>
+    <b-button @click="showData" 
+    class="mt-2 address-btn " 
+    variant="none" >
+   Click Me
+    </b-button>
+    </div>
+
     <div v-if="show">
-    <!-- <div v-for="data in dataList" :key="data">
-    {{data}} -->
       <LazyAboutPage  />
       </div>
     </div>
-    <!-- </div> -->
 </template>
 
 <script>
-import { ref, onMounted } from '@vue/composition-api'
+import { ref, } from '@vue/composition-api'
     export default {
         setup(){
             const show =ref(false)
             const showData=()=>{
                 show.value=true
             }
-
-            // const dataList = new Array(200).fill('hello world')
             return { show, showData,}
         }
     }
 </script>
 
 <style scoped>
-
+.address-btn{
+border: 1px solid green
+}
 </style>

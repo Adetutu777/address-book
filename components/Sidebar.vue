@@ -28,7 +28,7 @@
 .sidebar {
   height:100vh;
   width: 12rem;
-   padding: 2rem;
+   padding: 0.5rem;
    line-height:2.2;
    font-size:18px;
   background: #f3e7e7;
@@ -44,6 +44,8 @@
 a.nuxt-link-exact-active {
   color: white;
   background:#243B41;
+  padding: 0.3rem;
+   width: 12rem;
 }
 
 
