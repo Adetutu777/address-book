@@ -4,8 +4,7 @@
 <h5 class="pt-2">AddressBook</h5>
 </div>  
 <div class="sidebar ml-1">
-
-  <div class="text-white">
+  <div class="text-light">
       <NuxtLink class="sidebar-list"  to="/contact">Contact</NuxtLink> <br>
       <NuxtLink class="sidebar-list" to="/account">Account</NuxtLink> <br>
       <NuxtLink class="sidebar-list" to="/about">About</NuxtLink> <br>
@@ -28,24 +27,28 @@
 .sidebar {
   height:100vh;
   width: 12rem;
-   padding: 0.5rem;
+   padding: 0.2rem;
    line-height:2.2;
    font-size:18px;
-  background: #f3e7e7;
+  background: #f5f5f5;
 }
 
 .head-text{
-   background: #f3e7e7;
+   background: #f5f5f5;
 }
 .sidebar-list{
   color: black;
+  padding: 0.1rem;
+  border-radius: 5px;
+  padding-left: 0.5rem;
+text-decoration: none;
 }
 
 a.nuxt-link-exact-active {
   color: white;
   background:#243B41;
-  padding: 0.3rem;
-   width: 12rem;
+  display: inline-block;
+   width: 100%;
 }
 
 

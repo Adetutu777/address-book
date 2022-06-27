@@ -1,7 +1,5 @@
 <template>
-    <!-- <Address /> -->
-    <div class="">
-    <!-- <Sidebar /> -->
+    <div class="ml-3 mt-2">
     <p>Lorem ipsum dolor sit amet.</p>
     </div>
 </template>

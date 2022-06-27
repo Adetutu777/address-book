@@ -1,5 +1,5 @@
 <template>
-<div class=" my-address" style="width:20rem">
+<div class=" my-address" >
 <h3 class="address-title">Address book</h3>
 <div class="mt-4">
   <ValidationObserver v-slot="{ invalid }">
@@ -81,12 +81,12 @@ export default {
 </script>
 
 <style scoped>
-my-address{
+.my-address{
 width: 20rem;
 }
 
 .address-title{
-  margin-top: 6rem;
+  margin-top: 1rem;
 }
 
 .address-btn{

@@ -21,7 +21,7 @@
 
 <style  scoped>
 .wrapper{
-    backdrop-filter: #e5e5e5;
+    background: #e5e5e5;
 }
 
 .nav-title{
