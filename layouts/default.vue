@@ -7,9 +7,6 @@
     </div>
     <Nuxt />
     </div>
-      <!-- <MainNav style="flex:8;"> -->
-    <!-- <Nuxt /> -->
-      <!-- </MainNav> -->
     </div>
 </template>
 

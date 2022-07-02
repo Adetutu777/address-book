@@ -3,14 +3,10 @@
     <div class="head-text my-2 ml-1 px-2 py-2 ">
 <h5 class="pt-2">AddressBook</h5>
 </div>  
-<div class="sidebar ml-1">
-  <div class="text-light">
+<div class="sidebar ml-1 text-light">
       <NuxtLink class="sidebar-list"  to="/contact">Contact</NuxtLink> <br>
       <NuxtLink class="sidebar-list" to="/account">Account</NuxtLink> <br>
       <NuxtLink class="sidebar-list" to="/about">About</NuxtLink> <br>
-    
-      
-  </div>
 </div>
     </div>
 </template>

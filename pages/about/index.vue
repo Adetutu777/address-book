@@ -18,6 +18,7 @@
 <script>
 import { ref, } from '@vue/composition-api'
     export default {
+      
         setup(){
             const show =ref(false)
             const showData=()=>{
