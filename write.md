@@ -155,17 +155,19 @@ import Address from '../../components/Address.vue'
 ```
 In the template folder of our Address component, we have two input fields (the b-form-input are gotten from bootstrapvue website. here is link, https://bootstrap-vue.org/docs/components/form-input) with a save button & each of the form input have there respective v-model & in our script folder, we start by importing ref from Nuxtjs follow by the codes to solve the problem at hand. Check below for the code
 ###### Address component code
+
+
 ```html
 <template>
 <div class=" my-address" >
-<h3 class="address-title">Address book</h3>
+<h3 class="address-title mt-1">Address book</h3>
 <div class="mt-4">
 <form>
-   <b-form-input  v-on:keyup="resetDone"
+   <b-form-input 
    placeholder="Name"
    v-model= "name" />
 
-   <b-form-input v-on:keyup="resetDone" 
+   <b-form-input 
    class="mt-4" 
    placeholder="Phone number" 
    v-model= "numbers"
@@ -211,14 +213,7 @@ export default {
      done.value = true
     }
 
-    //  resetDone(){
-    //   if(this.done == false) return 
-    //   this.done=false
-    // }
-    const resetDone=()=>{
-      if(done.value == false) return
-    }
-    return{ name, numbers, saveMessage, result, done, resetDone }
+    return{ name, numbers, saveMessage, result, done }
   }
 }
 </script>
@@ -226,10 +221,6 @@ export default {
 <style scoped>
 .my-address{
 width: 20rem;
-}
-
-.address-title{
-  margin-top: 1rem;
 }
 
 .address-btn{
@@ -243,5 +234,6 @@ border: 1px solid green
 </style>
 
 ```
-
 ###### The output
+
+#### Using VeeValidates In Nuxtjs

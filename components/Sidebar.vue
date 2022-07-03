@@ -5,8 +5,8 @@
 </div>  
 <div class="sidebar ml-1 text-light">
       <NuxtLink class="sidebar-list"  to="/contact">Contact</NuxtLink> <br>
-      <NuxtLink class="sidebar-list" to="/account">Account</NuxtLink> <br>
       <NuxtLink class="sidebar-list" to="/about">About</NuxtLink> <br>
+      <NuxtLink class="sidebar-list" to="/account">Account</NuxtLink> <br>
 </div>
     </div>
 </template>
