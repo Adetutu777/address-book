@@ -2,27 +2,16 @@
 <div class=" my-address" >
 <h3 class="address-title">Address book</h3>
 <div class="mt-4">
-  <ValidationObserver v-slot="{ invalid }">
 <form>
-<ValidationProvider rules="required" v-slot="{ errors }">
    <b-form-input  v-on:keyup="resetDone"
    placeholder="Name"
    v-model= "name" />
-<div class="" style="position: relative; padding-bottom:0.1rem ">
-                                <span v-if="!done" style="color:red; position: absolute; left:0;">{{ errors[0] }}</span> 
-                                </div> 
-           </ValidationProvider>
 
-<ValidationProvider rules="required|numeric" v-slot="{ errors }">
    <b-form-input v-on:keyup="resetDone" 
    class="mt-4" 
    placeholder="Phone number" 
    v-model= "numbers"
     />
-<div class="" style="position: relative; padding-bottom:0.1rem ">
-                                <span v-if="!done" style="color:red; position: absolute; left:0;">{{ errors[0] }}</span> 
-                                </div> 
-           </ValidationProvider>
 
     <b-button @click="saveMessage" 
      :disabled="invalid"
@@ -31,15 +20,13 @@
     Save
     </b-button>
     </form>
-  </ValidationObserver>
   </div>
 
-  <div class="contact-list mt-4">
+  <div class="contact-list mt-5">
   <h5>Contact List</h5>
   <div class="d-flex justify-content-between user-info p-2 mt-1"  v-for="results in result" :key="results">
 <div class="">{{results.name}}</div>
 <div class="">{{results.numbers}}</div>
-    <!-- <p class="p-2">---</p> -->
   </div>
   </div>
   </div>
@@ -47,10 +34,8 @@
 
 <script>
 import {  ref } from "@nuxtjs/composition-api";
-import { ValidationProvider, ValidationObserver } from 'vee-validate';
 export default {
   name: 'Address',
-  components:{ValidationProvider, ValidationObserver},
   setup(){
     const name = ref('')
     const numbers = ref('')
@@ -94,7 +79,7 @@ border: 1px solid green
 }
 
 .user-info{
-  background: rgb(236, 238, 251);
+  background: rgb(206, 210, 240);
   border-radius: 5px;
 }
 </style>

@@ -25,7 +25,7 @@ yarn add @nuxtjs/composition-api
 
 Now that we have installed all we needed, lets get into usage of nuxtjs in our project, we will building a simple app, I call it an address book. To create a new route in Nuxtjs, all you need to do is to craete your file under the pages directory, so Nuxtjs has aleeady taken care of routing underneath, all you need do is just to create an the file you need . In our case, we will be creating three pages which are going to be called about, account & contact. For each of the pages, I've created an index.vue file where our code is going to be written. 
 
-Also the component folder, I'll creating a sidebar and a navbar compnent which will be pointing to our pages directory. Starting with the sidebar, here is what it looks like. The template below has a div with class named sidebar, The div contain three NuxtLink, this is what is going to be used for the redirection to various route, the, the pages created aboe is what is been passed into the to prop
+Also the component folder, I'll creating a sidebar and a navbar compnent which will be pointing to our pages directory. Starting with the sidebar, here is what it looks like. The template below has a div with class named sidebar, The div contain three NuxtLink, this is what is going to be used for the redirection to various route, the, the pages created above is what is been passed into the to prop. In addition, Nuxt comes with a styling class to active classe, in the code below i have a class (a.nuxt-link-exact-active) which i set background color & color styling to, this is going to be applied to any active pages we clicked on our sidebar therefore any 
 
 ```html
 <template>
@@ -129,6 +129,119 @@ Now that we have created our sidebar, lets also create our navbar, the bavbar is
 }
 </style>
 
-```, 
-At the index.vue of our pages root folder(this is whats going to display upon loading the page), I have  
+```
+Lets take a look at what we have below, befre that, at the root folder of our pages, I have deleted the tutorial component & also deleted from the component folder. I have a lorem text ther currently, check below to see what we have.
 
+The contact page is a page with an index.vue file and inside this file, I have component with name "Address.vue. "Address.vue" contins the code where we have two input fields & a save button where user can type in names and phone number & saving it. Here is the code and output below
+
+###### contact page code
+```html
+<template>
+    <div style="display:flex">
+     <Address class="mx-4" />
+    </div>
+</template>
+
+<script>
+import Address from '../../components/Address.vue'
+    export default {
+        components:{Address}
+    }
+</script>
+
+<style scoped>
+
+</style>
+```
+In the template folder of our Address component, we have two input fields (the b-form-input are gotten from bootstrapvue website. here is link, https://bootstrap-vue.org/docs/components/form-input) with a save button & each of the form input have there respective v-model & in our script folder, we start by importing ref from Nuxtjs follow by the codes to solve the problem at hand. Check below for the code
+###### Address component code
+```html
+<template>
+<div class=" my-address" >
+<h3 class="address-title">Address book</h3>
+<div class="mt-4">
+<form>
+   <b-form-input  v-on:keyup="resetDone"
+   placeholder="Name"
+   v-model= "name" />
+
+   <b-form-input v-on:keyup="resetDone" 
+   class="mt-4" 
+   placeholder="Phone number" 
+   v-model= "numbers"
+    />
+
+    <b-button @click="saveMessage" 
+     :disabled="invalid"
+    class="mt-3 address-btn" 
+    variant="info" >
+    Save
+    </b-button>
+    </form>
+  </div>
+
+  <div class="contact-list mt-5">
+  <h5>Contact List</h5>
+  <div class="d-flex justify-content-between user-info p-2 mt-1"  v-for="results in result" :key="results">
+<div class="">{{results.name}}</div>
+<div class="">{{results.numbers}}</div>
+  </div>
+  </div>
+  </div>
+</template>
+
+<script>
+import {  ref } from "@nuxtjs/composition-api";
+export default {
+  name: 'Address',
+  setup(){
+    const name = ref('')
+    const numbers = ref('')
+    const result = ref([])
+    const done = ref(false)
+
+    const saveMessage=()=>{
+     const message = {
+        name:name.value,
+        numbers:numbers.value,
+     }
+     result.value.push(message) 
+     name.value='',
+     numbers.value=''
+     done.value = true
+    }
+
+    //  resetDone(){
+    //   if(this.done == false) return 
+    //   this.done=false
+    // }
+    const resetDone=()=>{
+      if(done.value == false) return
+    }
+    return{ name, numbers, saveMessage, result, done, resetDone }
+  }
+}
+</script>
+
+<style scoped>
+.my-address{
+width: 20rem;
+}
+
+.address-title{
+  margin-top: 1rem;
+}
+
+.address-btn{
+border: 1px solid green
+}
+
+.user-info{
+  background: rgb(206, 210, 240);
+  border-radius: 5px;
+}
+</style>
+
+```
+
+###### The output
