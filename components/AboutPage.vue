@@ -16,6 +16,7 @@ import {  ref, useFetch } from '@nuxtjs/composition-api';
     export default {
         setup(){
             const todo = ref('')
+            
              useFetch(async () => {
       await axios.get('https://jsonplaceholder.typicode.com/users')
      .then( response => todo.value = response?.data)
@@ -29,6 +30,6 @@ import {  ref, useFetch } from '@nuxtjs/composition-api';
 
 <style scoped>
 .todo-card{
-    border: 0.7px solid salmon;
+    border: 0.7px solid rgb(90, 65, 62);
 }
 </style>

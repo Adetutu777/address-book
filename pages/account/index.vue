@@ -1,12 +1,12 @@
 <template>
     <div>
-        <p>Account page</p>
+        <h2 class="text-center mt-4"> Account page</h2>
     </div>
 </template>
 
 <script>
     export default {
-        //    layout: "no-nav", 
+           layout: "no-sidenav", 
     }
 </script>
 

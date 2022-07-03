@@ -1,11 +1,11 @@
 <template>
     <div>
     <div class="ml-3 mt-4">
-<h5>Hello World</h5>
+    <h5>Hello World</h5>
     <b-button @click="showData" 
-    class="mt-2 address-btn " 
-    variant="none" >
-   Click Me
+    class="mt-2" 
+    variant="info" >
+    Click Me
     </b-button>
     </div>
 
@@ -30,7 +30,5 @@ import { ref, } from '@vue/composition-api'
 </script>
 
 <style scoped>
-.address-btn{
-border: 1px solid green
-}
+
 </style>

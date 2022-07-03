@@ -4,7 +4,7 @@
 <div class="mt-4">
   <ValidationObserver v-slot="{ invalid }">
 <form>
-<ValidationProvider rules="required" v-slot="{ errors }">
+<ValidationProvider rules="required|alpha" v-slot="{ errors }">
    <b-form-input  v-on:keyup="resetDone"
    placeholder="Name"
    v-model= "name" />
@@ -26,7 +26,7 @@
 
     <b-button @click="saveMessage" 
      :disabled="invalid"
-    class="mt-3 address-btn" 
+    class="mt-4 address-btn" 
     variant="info" >
     Save
     </b-button>
@@ -39,7 +39,6 @@
   <div class="d-flex justify-content-between user-info p-2 mt-1"  v-for="results in result" :key="results">
 <div class="">{{results.name}}</div>
 <div class="">{{results.numbers}}</div>
-    <!-- <p class="p-2">---</p> -->
   </div>
   </div>
   </div>
