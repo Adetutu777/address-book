@@ -17,3 +17,4 @@ $ yarn start
 $ yarn generate
 ``` -->
 
+ - Live Link: https://address-nuxt.netlify.app/
