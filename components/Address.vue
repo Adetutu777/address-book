@@ -67,10 +67,6 @@ export default {
      done.value = true
     }
 
-    //  resetDone(){
-    //   if(this.done == false) return 
-    //   this.done=false
-    // }
     const resetDone=()=>{
       if(done.value == false) return
     }
