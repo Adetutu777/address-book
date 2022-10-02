@@ -1,6 +1,6 @@
 ### address-book
 
-#### This is an article on how to use nuxtjs in your next vue project
+#### This web app is centered on an article titled: How to use NuxtJs in your next Vue project
 
 <!-- ```bash
 # install dependencies
@@ -17,4 +17,6 @@ $ yarn start
 $ yarn generate
 ``` -->
 
- - Live Link: https://address-nuxt.netlify.app/
+ - Live Link(Not mobile responsive): https://address-nuxt.netlify.app/
+
+-Link to article can be found here : https://dev.to/adetutu777/how-to-use-nuxtjs-in-your-next-vuejs-project-272p
